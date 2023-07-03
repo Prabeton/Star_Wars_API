@@ -7,8 +7,8 @@ let header = false;
 
 const $buttonSW = document.querySelector("#buttonSW");
 $buttonSW.addEventListener("click", () => {
-    console.log("BUTTON STAR WARS!");
-        alert("BUTTON STAR WARS!");
+    console.log("IDZIESZ NA PEWNĄ ŚMIERĆ!");
+        alert("IDZIESZ NA PEWNĄ ŚMIERĆ!");
 })
 
 
@@ -28,6 +28,7 @@ function printTableFn (tablicaObjektow, category) {
 
 
 function displayButton (collectionName) {
+    
     const $buttonsContainer = document.querySelector("#buttonsContainer");
     Object.entries(collectionName).forEach(([key, value]) => {
         const button = document.createElement("button");
@@ -36,14 +37,10 @@ function displayButton (collectionName) {
         button.addEventListener("click", async () => {
             const $dataContainer = document.querySelector("#dataContainer");
             $dataContainer.immerHTML = "";
-            await fetchDataFn(value, `collectionsData.${key}`, state.collectionsData);
-            // po tym fetchowaniu wszystko mam juz w State'cie!
-            // w consol.log'ach wszystko pięknie widać 
-            // teraz trzeba to tylko wyświetlić
-            consol.log("data.results:", data.results);
-            printTableFn(data.results, key);
+            await fetchDataFn(`${value}?page=1`, `collectionsData.${key}`, state.collectionsData);
+            printTableFn(state.collectionsData[key].results, key);
         });
-
+        
         $buttonsContainer.appendChild(button);
     })
 }
