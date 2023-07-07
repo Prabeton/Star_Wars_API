@@ -1,6 +1,7 @@
 // praca domowa - star wars api. ver.3 mam nadzieję ostatnia ;)
 // <title> Star Wars ver.3 </title>
 // miłego sprawdzania :)
+
 const BASE_URL = "https://swapi.dev/api/";
 const state = {};
 let header = false;

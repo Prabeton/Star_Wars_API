@@ -78,17 +78,10 @@ w tym zadaniu liczy się Wasza kreatywność, znajdźcie coś co nas zaskoczy
 Dodaj możliwośc zaznaczania checkboxem wierszy na tabelce, dzięki czemu na raz będziemy mogli usunąć kilka itemów z listy, a nie tylko jeden
 
 
-13. ***** GRA Z KOMPUTEREM 
+13. ***** GRA Z KOMPUTEREM // to powinna być karcianka (grasz lukiem kontra waderem)
 korzystając z wiedzy zdobytej podczas tworzenia gry, spróbuj za pomocą modelu(klasy) postaci zaimplementować walkę 2 postaci jedna postać niech to będzie "sztuczna inteligencja", zaimplementowana za pomocą ifów drugą postacią będziemy grać my, czyli musi być opcja wygrania i przegrania z przeciwnikiem `:)`
 
+14. Funkcjonalność zmiany THEMING'U z jasnego na ciemny i odwrotnie.
 
 -------------------------------------------- *** ---------------------------------------------------------
-
-
-Osoby chętne będą miały możliwość prezentacji swoich prac domowych przed całą grupą, jeżeli nie znajdziemy
-chętnych wybierzemy w ramach losowaniu 3 "ochotników" :D
-Dodaje, że style css, responsywność, jakość wykonaniu detailsów ma duże znaczenie, więc proszę nie zaniedbywać detailsów i oczywiście dodatkowe rzeczy są bardzo mile widziane, np. w pierwszej edycji były osoby, co użyły css variables i na tej podstawie dodały funkcjonalność zmiany themingu z jasnego na ciemny i odwrotnie.
-
-Poniżej przykładowa makieta, w celu ułatwienia Wam startu.
-Dajcie znać jak macie pytania, kolejny live zrobimy we wtorek, do tego czasu spróbujcie zrobić ile dacie radę, na livie wytłumaczę niejasności. Ostatnie punkty są dla ludzi o mocnych nerwach :slightly_smiling_face: jak dojdziecie do '8' to będzie super, jednakże zachęcam do wykonania każdego podpunktu :wink:
 
