@@ -9,39 +9,40 @@ let header = false;
 const $buttonSW = document.querySelector("#buttonSW");
 $buttonSW.addEventListener("click", () => {
     console.log("IDZIESZ NA PEWNĄ ŚMIERĆ!");
-        alert("IDZIESZ NA PEWNĄ ŚMIERĆ!");
+        alert("Łączność OK! IDZIESZ NA PEWNĄ ŚMIERĆ!");
 })
 
 
-
+                            // (state.collectionsData[key].results, key)
 function printTableFn (tablicaObjektow, category) {
+
     const $tableContainer = document.querySelector("#tableContainer");
     $tableContainer.innerHTML = "";
     header = false;
     let html = "";
+
         tablicaObjektow.forEach((element, index) => {
             html += fillCategoryWithData (element, index, category);
         })
+
     $tableContainer.innerHTML = html;
 }
 
 
 
-
+                            // (state.collectionsData)
 function displayButton (collectionName) {
-    
     const $buttonsContainer = document.querySelector("#buttonsContainer");
     Object.entries(collectionName).forEach(([key, value]) => {
         const button = document.createElement("button");
         button.innerHTML = key;
         button.classList.add("button");
         button.addEventListener("click", async () => {
-            const $dataContainer = document.querySelector("#dataContainer");
-            $dataContainer.immerHTML = "";
+            // const $dataContainer = document.querySelector("#dataContainer");
+            // $dataContainer.immerHTML = "";
             await fetchDataFn(`${value}?page=1`, `collectionsData.${key}`, state.collectionsData);
             printTableFn(state.collectionsData[key].results, key);
         });
-        
         $buttonsContainer.appendChild(button);
     })
 }
@@ -99,6 +100,8 @@ class People {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details person index${this.index}">details</button>
                         <button class="delete person index${this.index}">delete</button></td>
+                    <td><input type="checkbox" name="people${this.index}" value="${this.name}">
+                    </td>
                 </tr>`
     }
 }
@@ -123,6 +126,8 @@ class Planet {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details person index${this.index}">details</button>
                         <button class="delete person index${this.index}">delete</button></td>
+                    <td><input type="checkbox" name="planet${this.index}" value="${this.name}">
+                    </td>
                 </tr>`
     }
 }
@@ -146,6 +151,8 @@ class Film {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details person index${this.index}">details</button>
                         <button class="delete person index${this.index}">delete</button></td>
+                    <td><input type="checkbox" name="film${this.index}" value="${this.title}">
+                    </td>
                 </tr>`
     }
 }
@@ -170,6 +177,8 @@ class Species {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details person index${this.index}">details</button>
                         <button class="delete person index${this.index}">delete</button></td>
+                    <td><input type="checkbox" name="species${this.index}" value="${this.name}">
+                    </td>
                 </tr>`
     }
 }
@@ -194,6 +203,8 @@ class Starship {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details person index${this.index}">details</button>
                         <button class="delete person index${this.index}">delete</button></td>
+                    <td><input type="checkbox" name="starship${this.index}" value="${this.cost_in_credits}">
+                    </td>
                 </tr>`
     }
 }
@@ -217,13 +228,16 @@ class Vehicle {
                     <td>${this.cost_in_credits}</td>
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details person index${this.index}">details</button>
-                        <button class="delete person index${this.index}">delete</button></td>
+                        <button class="delete person index${this.index}">delete</button>
+                    </td>
+                    <td><input type="checkbox" name="vehicle${this.index}" value="${this.cost_in_credits}">
+                    </td>
                 </tr>`
     }
 }
 
 // wypełnij kategorię danymi 
-// tutaj funkcja jako stała 
+                                    // ( {} , i , category ) 
 const fillCategoryWithData = (value, index, category) => {
     let html = "";
     

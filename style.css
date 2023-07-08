@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
 * {
     margin: 0;
     font-family: Josefin Sans, Arial, Helvetica, sans-serif;
     font-size: 18px;
+    margin: 0;
+    box-sizing: border-box; /* border dziecka zawiera się w borderze rodzica */
+    font-family: "Rubik", sans-serif;
+    
 }
 
 body {
@@ -10,16 +16,7 @@ body {
     flex-direction: row;
     align-items: center;
 }
-#buttonSW {
-    margin: 20px;
-    background-color: black;
-    width: 200px;
-    height: 70px;
-    margin: auto;
-    border: 2px solid black;
-    border-radius: 5px;
 
-}
 #leftContainer {
     padding: 0px;
     width: 15%;
@@ -29,8 +26,21 @@ body {
     background-color:rgb(20, 46, 25);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+    justify-content: start;
 }
+
+#buttonSW {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin: 20px;
+    background-color: rgb(20, 46, 25);
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
 
 #mainContainer {
     width: 70%;
@@ -69,6 +79,7 @@ body {
     border: 2px solid black;
     border-radius: 5px;
 }
+
 .button:hover {
     background-color: #162217;
 }

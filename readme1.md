@@ -51,7 +51,11 @@ CEL: Implementacja interaktywnej aplikacji www
 7. TABELKA ITEMÓW
 / ID=1,2,..., / NAGŁÓWKI[NAME] / 'CREATTED' DD-MM-YY / DETAILS (CLOSE) / DELETE (YES/NO) / 
   
-Na podstawie stworzonych obiektów wyświetl tabelkę, w której - nagłówkami będą nazwy właściwości obiektów - ostatnią kolumną będzie data 'created' przeformatowana do formatu DD-MM-YY - pierwszą kolumną będzie # liczba porządkowa 1,2,3... - na końcu każdego wiersza pojawią się 2 przyciski/ikony, DELETE i DETAILS - po kliknięciu w DETAILS wyświetl listę po lewej stronie ekranu, a po prawej pokaż rozszerzony widok konkretnego modelu - na widoku modelu dodaj przycisk close, który zamknie detailsy i ponownie wyświetli listę na środku ekranu - kliknięcie DELETE wyświetla modal: "Are you sure", z przyciskami YES i NO, po kliknięciu YES usuwamy element z listy, po kliknięciu NO zamykamy modal
+Na podstawie stworzonych obiektów wyświetl tabelkę, w której - nagłówkami będą nazwy właściwości obiektów - ostatnią kolumną będzie data 'created' przeformatowana do formatu DD-MM-YY - pierwszą kolumną będzie # liczba porządkowa 1,2,3... - na końcu każdego wiersza pojawią się 2 przyciski/ikony, DELETE i DETAILS. 
+
+7a. Po kliknięciu w DETAILS wyświetl listę po lewej stronie ekranu, a po prawej pokaż rozszerzony widok konkretnego modelu - na widoku modelu dodaj przycisk close, który zamknie detailsy i ponownie wyświetli listę na środku ekranu. 
+
+7b. Kliknięcie DELETE wyświetla modal: "Are you sure", z przyciskami YES i NO, po kliknięciu YES usuwamy element z listy, po kliknięciu NO zamykamy modal
 
 
 8. PAGINACJA / WALIDACJA / SELECT 
@@ -78,10 +82,9 @@ w tym zadaniu liczy się Wasza kreatywność, znajdźcie coś co nas zaskoczy
 Dodaj możliwośc zaznaczania checkboxem wierszy na tabelce, dzięki czemu na raz będziemy mogli usunąć kilka itemów z listy, a nie tylko jeden
 
 
-13. ***** GRA Z KOMPUTEREM // to powinna być karcianka (grasz lukiem kontra waderem)
-korzystając z wiedzy zdobytej podczas tworzenia gry, spróbuj za pomocą modelu(klasy) postaci zaimplementować walkę 2 postaci jedna postać niech to będzie "sztuczna inteligencja", zaimplementowana za pomocą ifów drugą postacią będziemy grać my, czyli musi być opcja wygrania i przegrania z przeciwnikiem `:)`
-
 14. Funkcjonalność zmiany THEMING'U z jasnego na ciemny i odwrotnie.
 
 -------------------------------------------- *** ---------------------------------------------------------
 
+13. ***** GRA Z KOMPUTEREM // to powinna być karcianka (grasz lukiem kontra waderem)
+korzystając z wiedzy zdobytej podczas tworzenia gry, spróbuj za pomocą modelu(klasy) postaci zaimplementować walkę 2 postaci jedna postać niech to będzie "sztuczna inteligencja", zaimplementowana za pomocą ifów drugą postacią będziemy grać my, czyli musi być opcja wygrania i przegrania z przeciwnikiem `:)`
