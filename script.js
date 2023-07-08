@@ -4,11 +4,11 @@
 
 const BASE_URL = "https://swapi.dev/api/";
 const state = {};
-let header = false;
+let hederFlaga = false;
 
 const $buttonSW = document.querySelector("#buttonSW");
 $buttonSW.addEventListener("click", () => {
-    console.log("IDZIESZ NA PEWNĄ ŚMIERĆ!");
+    console.log("Łączność OK! IDZIESZ NA PEWNĄ ŚMIERĆ!");
         alert("Łączność OK! IDZIESZ NA PEWNĄ ŚMIERĆ!");
 })
 
@@ -38,6 +38,7 @@ function displayButton (collectionName) {
         button.innerHTML = key;
         button.classList.add("button");
         button.addEventListener("click", async () => {
+            hederFlaga = false;
             // const $dataContainer = document.querySelector("#dataContainer");
             // $dataContainer.immerHTML = "";
             await fetchDataFn(`${value}?page=1`, `collectionsData.${key}`, state.collectionsData);
@@ -240,30 +241,104 @@ class Vehicle {
                                     // ( {} , i , category ) 
 const fillCategoryWithData = (value, index, category) => {
     let html = "";
+
+    const wstawCholeraTenHeder = (flaga) => {
+        if (!flaga) {
+            switch (true) {           // fajne to wstrzykiwanie html'a
+                case category === "people":
+                    html += `<tr class="heder">
+                                <td>id</td>
+                                <td>name</td>
+                                <td>birth</td>
+                                <td>genderon</td>
+                                <td>height</td>
+                                <td>created</td>
+                            </tr>`;
+                break;
+                case category === "planets":
+                    html += `<tr class="heder">
+                                <td>id</td>
+                                <td>name</td>
+                                <td>climate</td>
+                                <td>diameter</td>
+                                <td>gravity</td>
+                                <td>created</td>
+                            </tr>`;
+                break;
+                case category === "films":
+                    html += `<tr class="heder">
+                                <td>id</td>
+                                <td>title</td>
+                                <td>director</td>
+                                <td>producerus</td>
+                                <td>release</td>
+                                <td>created</td>
+                            </tr>`;
+                break;
+                case category === "species":
+                    html += `<tr class="heder">
+                                <td>id</td>
+                                <td>name</td>
+                                <td>language</td>
+                                <td>height</td>
+                                <td>lifespan</td>
+                                <td>created</td>
+                            </tr>`;
+                break;
+                case category === "vehicles":
+                    html += `<tr class="heder">
+                                <td>id</td>
+                                <td>name</td>
+                                <td>manufacturer</td>
+                                <td>length</td>
+                                <td>cost</td>
+                                <td>created</td>
+                            </tr>`;
+                break;
+                case category === "starships":
+                    html += `<tr class="heder">
+                                <td>id</td>
+                                <td>name</td>
+                                <td>manufacturer</td>
+                                <td>model</td>
+                                <td>cost</td>
+                                <td>created</td>
+                            </tr>`;
+                break; 
+            }
+        } 
+        hederFlaga = true;
+    }
     
     switch(true){
         case category === "people":
             const people = new People(value, index);
+            wstawCholeraTenHeder(hederFlaga);
             return (html += people.toHTML());
         
         case category === "planets":
             const planet = new Planet(value, index);
+            wstawCholeraTenHeder(hederFlaga);
             return (html += planet.toHTML());
         
         case category === "films":
             const film = new Film(value, index);
+            wstawCholeraTenHeder(hederFlaga);
             return (html += film.toHTML());
         
         case category === "species":
             const species = new Species(value, index);
+            wstawCholeraTenHeder(hederFlaga);
             return (html += species.toHTML());
         
         case category === "starships":
             const starship = new Starship(value, index);
+            wstawCholeraTenHeder(hederFlaga);
             return (html += starship.toHTML());
         
         case category === "vehicles":
             const vehicle = new Vehicle(value, index);
+            wstawCholeraTenHeder(hederFlaga);
             return (html += vehicle.toHTML());
     }
 }; 
