@@ -48,6 +48,7 @@ function displayButton (collectionName) {
         button.classList.add("button");
 
         button.addEventListener("click", async () => {
+            page = 1;
             categoriaWyswietlana = key;
             rightItem1.innerHTML = "";
             rightItem1.innerHTML = `*** ${categoriaWyswietlana} ***`;
@@ -103,8 +104,14 @@ class People {
     }
     
     toHTML () {
+        // let deleteButtonId = `deleteRowPeople${this.index}`;
+        // let deleteButton = document.getElementById("deleteRowPeople${this.index}");
+        // deleteButton.addEventListener('click', () => {
+        //     let row = document.getElementById(`rowPeople${this.index}`);
+        //     row.remove(); });
+
         return `<tr id="rowPeople${this.index}">
-                    <td>${this.index +1}</td>
+                    <td class="ID">${this.index +1}</td>
                     <td>${this.name}</td>
                     <td>${this.birth_year}</td>
                     <td>${this.gender}</td>
@@ -114,7 +121,8 @@ class People {
                         <button class="delete">delete</button></td>
                     <td><input type="checkbox" name="people${this.index}" value="${this.name}">
                     </td>
-                </tr>`
+                </tr>` ;
+        
     }
 }
 
@@ -130,7 +138,7 @@ class Planet {
     
     toHTML () {
         return `<tr id="rowPlanet${this.index}">
-                    <td>${this.index +1}</td>
+                    <td class="ID">${this.index +1}</td>
                     <td>${this.name}</td>
                     <td>${this.climate}</td>
                     <td>${this.diameter}</td>
@@ -155,7 +163,7 @@ class Film {
     
     toHTML () {
         return `<tr id="rowFilm${this.index}">
-                    <td>${this.index +1}</td>
+                    <td class="ID">${this.index +1}</td>
                     <td>${this.title}</td>
                     <td>${this.director}</td>
                     <td>${this.producer}</td>
@@ -181,7 +189,7 @@ class Species {
     
     toHTML () {
         return `<tr id="rowSpecies${this.index}">
-                    <td>${this.index +1}</td>
+                    <td class="ID">${this.index +1}</td>
                     <td>${this.name}</td>
                     <td>${this.language}</td>
                     <td>${this.average_height}</td>
@@ -207,7 +215,7 @@ class Starship {
 
     toHTML () {
         return `<tr id="rowStarship${this.index}">
-                    <td>${this.index +1}</td>
+                    <td class="ID">${this.index +1}</td>
                     <td>${this.name}</td>
                     <td>${this.manufacturer}</td>
                     <td>${this.model}</td>
@@ -233,7 +241,7 @@ class Vehicle {
 
     toHTML () {
         return `<tr id="rowVehicle${this.index}">
-                    <td>${this.index +1}</td>
+                    <td class="ID">${this.index +1}</td>
                     <td>${this.name}</td>
                     <td>${this.manufacturer}</td>
                     <td>${this.length}</td>
@@ -258,62 +266,62 @@ const fillCategoryWithData = (value, index, category) => {
             switch (true) {           // fajne to wstrzykiwanie html'a
                 case category === "people":
                     html += `<tr class="heder">
-                                <td>id</td>
-                                <td>name</td>
-                                <td>birth</td>
-                                <td>genderon</td>
-                                <td>height</td>
-                                <td>created</td>
+                                <td>ID</td>
+                                <td>NAME</td>
+                                <td>BIRTH</td>
+                                <td>GENDERON</td>
+                                <td>HEIGHT</td>
+                                <td>CREATED</td>
                             </tr>`;
                 break;
                 case category === "planets":
                     html += `<tr class="heder">
-                                <td>id</td>
-                                <td>name</td>
-                                <td>climate</td>
-                                <td>diameter</td>
-                                <td>gravity</td>
-                                <td>created</td>
+                                <td>ID</td>
+                                <td>NAME</td>
+                                <td>CLIMATE</td>
+                                <td>DIAMETER</td>
+                                <td>GRAVITY</td>
+                                <td>CREATED</td>
                             </tr>`;
                 break;
                 case category === "films":
                     html += `<tr class="heder">
-                                <td>id</td>
-                                <td>title</td>
-                                <td>director</td>
-                                <td>producerus</td>
-                                <td>release</td>
-                                <td>created</td>
+                                <td>ID</td>
+                                <td>TITLE</td>
+                                <td>DIRECTOR</td>
+                                <td>PRODUCERUS</td>
+                                <td>RELEASE</td>
+                                <td>CREATED</td>
                             </tr>`;
                 break;
                 case category === "species":
                     html += `<tr class="heder">
-                                <td>id</td>
-                                <td>name</td>
-                                <td>language</td>
-                                <td>height</td>
-                                <td>lifespan</td>
-                                <td>created</td>
+                                <td>ID</td>
+                                <td>NAME</td>
+                                <td>LANGUAGE</td>
+                                <td>HEIGHT</td>
+                                <td>LIFESPAN</td>
+                                <td>CREATED</td>
                             </tr>`;
                 break;
                 case category === "vehicles":
                     html += `<tr class="heder">
-                                <td>id</td>
-                                <td>name</td>
-                                <td>manufacturer</td>
-                                <td>length</td>
-                                <td>cost</td>
-                                <td>created</td>
+                                <td>ID</td>
+                                <td>NAME</td>
+                                <td>MANUFAKTURER</td>
+                                <td>LENGTH</td>
+                                <td>COST</td>
+                                <td>CREATED</td>
                             </tr>`;
                 break;
                 case category === "starships":
                     html += `<tr class="heder">
-                                <td>id</td>
-                                <td>name</td>
-                                <td>manufacturer</td>
-                                <td>model</td>
-                                <td>cost</td>
-                                <td>created</td>
+                                <td>ID</td>
+                                <td>NAME</td>
+                                <td>MANUFAKTURER</td>
+                                <td>MODEL</td>
+                                <td>COST</td>
+                                <td>CREATED</td>
                             </tr>`;
                 break; 
             }
@@ -358,19 +366,36 @@ const fillCategoryWithData = (value, index, category) => {
 const $panel_Container = document.querySelector("#panel_Container")
 
 let prevButton = document.createElement("button");
-let prevText = document.createTextNode("poprzednia strona");
+prevButton.classList.add("pagination");
+let prevText = document.createTextNode("<-- poprzednia strona");
 prevButton.appendChild(prevText);
 $panel_Container.appendChild(prevButton);
 
 let nextButton = document.createElement("button");
-let nextText = document.createTextNode("następna strona");
+nextButton.classList.add("pagination");
+let nextText = document.createTextNode("następna strona -->");
 nextButton.appendChild(nextText);
 $panel_Container.appendChild(nextButton);
 
-let paginationInfo = document.createElement("p");
-let paginationText = document.createTextNode("czemu sie nie wyświetla?");
-paginationInfo.appendchild(paginationText);
-$panel_Container.appendChild(paginationInfo);
+// let paginationInfo = document.createElement("p");
+// let paginationText = document.createTextNode("czemu sie nie wyświetla?");
+// paginationInfo.appendchild(paginationText);
+// $panel_Container.appendChild(paginationInfo);
+
+nextButton.addEventListener("click", async() => {
+    page++;
+    hederFlaga = false;
+    await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
+          printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
+});
+
+prevButton.addEventListener("click", async() => {
+    page--;
+    hederFlaga = false;
+    await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
+          printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
+});
+
 
 
 

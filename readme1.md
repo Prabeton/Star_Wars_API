@@ -48,10 +48,10 @@ CEL: Implementacja interaktywnej aplikacji www
         *jeżeli znajdziesz jakiekolwiek punkty wspólne, możesz pokusić się o dziedziczenie po klasie bazowej
 
 
-7. TABELKA ITEMÓW
-/ ID=1,2,..., / NAGŁÓWKI[NAME] / 'CREATTED' DD-MM-YY / DETAILS (CLOSE) / DELETE (YES/NO) / 
-  
-Na podstawie stworzonych obiektów wyświetl tabelkę, w której - nagłówkami będą nazwy właściwości obiektów - ostatnią kolumną będzie data 'created' przeformatowana do formatu DD-MM-YY - pierwszą kolumną będzie # liczba porządkowa 1,2,3... - na końcu każdego wiersza pojawią się 2 przyciski/ikony, DELETE i DETAILS. 
+        7. TABELKA ITEMÓW
+        / ID=1,2,..., / NAGŁÓWKI[NAME] / 'CREATTED' DD-MM-YY / DETAILS (CLOSE) / DELETE (YES/NO) / 
+        
+        Na podstawie stworzonych obiektów wyświetl tabelkę, w której - nagłówkami będą nazwy właściwości obiektów - ostatnią kolumną będzie data 'created' przeformatowana do formatu DD-MM-YY - pierwszą kolumną będzie # liczba porządkowa 1,2,3... - na końcu każdego wiersza pojawią się 2 przyciski/ikony, DELETE i DETAILS. 
 
 7a. Po kliknięciu w DETAILS wyświetl listę po lewej stronie ekranu, a po prawej pokaż rozszerzony widok konkretnego modelu - na widoku modelu dodaj przycisk close, który zamknie detailsy i ponownie wyświetli listę na środku ekranu. 
 
@@ -59,7 +59,10 @@ Na podstawie stworzonych obiektów wyświetl tabelkę, w której - nagłówkami 
 
 
 8. PAGINACJA / WALIDACJA / SELECT 
-Do tabelki dodaj paginację - poprzednia strona (z zablokowaniem < 1) - następna strona (oblicz ilość stron na podstawie ilosci wynikow i ilosci wyswietlonych elementow na 1 stronie) - input, w którym możemy wpisać do której strony chcemy przejść (walidacja) - select, w którym możemy zmienić ilość elementów wyświetlanych na stronie.
+Do tabelki dodaj:
+- paginację - poprzednia strona (z zablokowaniem < 1) - następna strona (oblicz ilość stron na podstawie ilosci wynikow i ilosci wyswietlonych elementow na 1 stronie)
+- input, w którym możemy wpisać do której strony chcemy przejść (walidacja) 
+- select, w którym możemy zmienić ilość elementów wyświetlanych na stronie.
 
 
 9. * 1 UNIKALNA FUNKCJA W WIDOKU MODELU (np. OPIS MODELU)
@@ -68,7 +71,10 @@ np. dla films mógłby to być przycisk, który po kliknięciu w model wyświetl
 
 
 10. **  2 X WYSZUKIWARKA PO PARAMETRACH (BEZ ENDPOINTU)
-Zaimplementuj 2 rodzaje wyszukiwarki - za pomocą użycia odpowiednich parametrów w endpointach konkretnych modeli - za pomocą przeszukiwania tabelki(tablicy) bez używania endpointu.
+Zaimplementuj 2 rodzaje wyszukiwarki: 
+
+        1 - za pomocą użycia odpowiednich parametrów w endpointach konkretnych modeli 
+        2 - za pomocą przeszukiwania tabelki(tablicy) bez używania endpointu.
 
 
 11. *** 3 FUNKCJONALNOŚCI 
