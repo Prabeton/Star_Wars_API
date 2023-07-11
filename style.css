@@ -4,20 +4,21 @@
     margin: 0;
     font-family: Josefin Sans, Arial, Helvetica, sans-serif;
     font-size: 18px;
-    margin: 0;
     box-sizing: border-box; /* border dziecka zawiera się w borderze rodzica */
     font-family: "Rubik", sans-serif;
     
 }
 
-body {
+main {
+    height: 100vh;
+    width : 100vw; 
     background-color: #05570b;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: start;
 }
 
-#leftContainer {
+#left_Container {
     padding: 0px;
     width: 15%;
     min-height: 85vh;
@@ -26,11 +27,11 @@ body {
     background-color:rgb(20, 46, 25);
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: start;
 }
 
-#buttonSW {
+#buttonCC {
     display: flex;
     justify-content: end;
     align-items: end;
@@ -38,14 +39,21 @@ body {
     background-color: rgb(20, 46, 25);
     border: 2px solid black;
     border-radius: 5px;
+    border-color: orangered;
+    color: orangered;
 }
 
 .heder {
     color: yellow;
+    text-align: center;
+    
+}
+.rightItem {
+    color: red;
+    margin: 20px;
 }
 
-
-#mainContainer {
+#center_Container {
     width: 70%;
     min-height: 85vh;
     margin: 20px;
@@ -56,7 +64,7 @@ body {
     align-items: center;
 }
 
-#rightContainer {
+#right_Container {
     width: 15%;
     min-height: 85vh;
     margin: 20px;
@@ -67,7 +75,7 @@ body {
     align-items: center;
 }
 
-#buttonsContainer {
+#buttons_Container {
     width: 80%;
     display: flex;
     justify-content: center;
@@ -85,4 +93,22 @@ body {
 
 .button:hover {
     background-color: #162217;
+}
+
+.details {
+    background-color: #bbd82a;
+    border: none;
+    border-radius: 4px;
+}
+
+.delete {
+    background-color: orangered;
+    border: none;
+    border-radius: 4px;
+}
+
+td {
+    border: 1px solid  #236128;
+    text-align: center;
+    
 }
