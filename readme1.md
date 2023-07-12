@@ -55,26 +55,30 @@ CEL: Implementacja interaktywnej aplikacji www
 
 7a. Po kliknięciu w DETAILS wyświetl listę po lewej stronie ekranu, a po prawej pokaż rozszerzony widok konkretnego modelu - na widoku modelu dodaj przycisk close, który zamknie detailsy i ponownie wyświetli listę na środku ekranu. 
 
-7b. Kliknięcie DELETE wyświetla modal: "Are you sure", z przyciskami YES i NO, po kliknięciu YES usuwamy element z listy, po kliknięciu NO zamykamy modal
+        7b. Kliknięcie DELETE wyświetla modal: "Are you sure", z przyciskami YES i NO, po kliknięciu YES usuwamy element z listy, po kliknięciu NO zamykamy modal
 
 
 8. PAGINACJA / WALIDACJA / SELECT 
 Do tabelki dodaj:
-- paginację - poprzednia strona (z zablokowaniem < 1) - następna strona (oblicz ilość stron na podstawie ilosci wynikow i ilosci wyswietlonych elementow na 1 stronie)
-- input, w którym możemy wpisać do której strony chcemy przejść (walidacja) 
-- select, w którym możemy zmienić ilość elementów wyświetlanych na stronie.
+
+8a.     Paginację - poprzednia strona (z zablokowaniem < 1) - następna strona 
+        (oblicz   ilość stron na podstawie ilosci wynikow i ilosci wyswietlonych elementow na 1 stronie)
+
+8b.     INPUT - w którym możemy wpisać do której strony chcemy przejść (walidacja) 
+
+8c.     SELECT - w którym możemy zmienić ilość elementów wyświetlanych na stronie.
 
 
 9. * 1 UNIKALNA FUNKCJA W WIDOKU MODELU (np. OPIS MODELU)
-Widok każdego modelu, powinen zawierać unikalną funkcję zaimplementowaną na klasie danego modelu
-np. dla films mógłby to być przycisk, który po kliknięciu w model wyświetli opis tego filmu
+Widok każdego modelu, powinen zawierać unikalną funkcję zaimplementowaną na klasie danego modelu (np. dla films mógłby to być przycisk, który po kliknięciu w model wyświetli opis tego filmu)
 
 
 10. **  2 X WYSZUKIWARKA PO PARAMETRACH (BEZ ENDPOINTU)
 Zaimplementuj 2 rodzaje wyszukiwarki: 
 
-        1 - za pomocą użycia odpowiednich parametrów w endpointach konkretnych modeli 
-        2 - za pomocą przeszukiwania tabelki(tablicy) bez używania endpointu.
+10a.    Za pomocą użycia odpowiednich parametrów w endpointach konkretnych modeli 
+
+10b.    Za pomocą przeszukiwania tabelki(tablicy) bez używania endpointu.
 
 
 11. *** 3 FUNKCJONALNOŚCI 
@@ -83,9 +87,11 @@ np. po klinięciu 'enter' wyświetli się komunikat GAME OVER i otworzy się now
 po najechaniu myszką na logo, bądź inny element odpali się dźwięk/film/animacja
 w tym zadaniu liczy się Wasza kreatywność, znajdźcie coś co nas zaskoczy 
 
+        11a.    "Sprawdź łączność" ;) 
 
-12. **** CHECKBOX'Y NA WIERSZACH  
-Dodaj możliwośc zaznaczania checkboxem wierszy na tabelce, dzięki czemu na raz będziemy mogli usunąć kilka itemów z listy, a nie tylko jeden
+
+        12. **** CHECKBOX'Y NA WIERSZACH  
+        Dodaj możliwośc zaznaczania checkboxem wierszy na tabelce, dzięki czemu na raz będziemy mogli usunąć kilka itemów z listy, a nie tylko jeden
 
 
 14. Funkcjonalność zmiany THEMING'U z jasnego na ciemny i odwrotnie.

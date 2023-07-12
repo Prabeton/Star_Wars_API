@@ -45,7 +45,7 @@ class People {
                 <button class="delete">delete</button>
             </td>
             <td>
-                <input type="checkbox" name="people${this.index}" value="${this.name}">
+                <input type="checkbox" name="${categoriaWyswietlana}${this.index}" value="${this.name}">
             </td>
         </tr>`;
     }
@@ -71,7 +71,7 @@ class Planet {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details">details</button>
                         <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="planet${this.index}" value="${this.name}">
+                    <td><input type="checkbox" name="${categoriaWyswietlana}${this.index}" value="${this.name}">
                     </td>
                 </tr>`
     }
@@ -97,7 +97,7 @@ class Film {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details">details</button>
                         <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="film${this.index}" value="${this.title}">
+                    <td><input type="checkbox" name="${categoriaWyswietlana}${this.index}" value="${this.title}">
                     </td>
                 </tr>`
     }
@@ -123,7 +123,7 @@ class Species {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details">details</button>
                         <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="species${this.index}" value="${this.name}">
+                    <td><input type="checkbox" name="${categoriaWyswietlana}${this.index}" value="${this.name}">
                     </td>
                 </tr>`
     }
@@ -149,7 +149,7 @@ class Starship {
                     <td>${new Date(this.created).toLocaleDateString()}</td>
                     <td><button class="details">details</button>
                         <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="starship${this.index}" value="${this.cost_in_credits}">
+                    <td><input type="checkbox" name="${categoriaWyswietlana}${this.index}" value="${this.cost_in_credits}">
                     </td>
                 </tr>`
     }
@@ -176,7 +176,7 @@ class Vehicle {
                     <td><button class="details">details</button>
                         <button class="delete">delete</button>
                     </td>
-                    <td><input type="checkbox" name="vehicle${this.index}" value="${this.cost_in_credits}">
+                    <td><input type="checkbox" name="${categoriaWyswietlana}${this.index}" value="${this.cost_in_credits}">
                     </td>
                 </tr>`
     }
@@ -398,8 +398,10 @@ const fillCategoryWithData = (value, index, category) => {
     }
 }; 
 
-// pagination section ;)
+
+
 const $panel_Container = document.querySelector("#panel_Container")
+
 
 let prevButton = document.createElement("button");
 prevButton.classList.add("pagination");
@@ -436,6 +438,25 @@ prevButton.addEventListener("click", async() => {
           printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
     paginationInfo.innerHTML = `${page}`;
 });
+
+
+const $function_Container = document.getElementById("function_Container");
+
+
+const deleteChecked = document.createElement("button");
+deleteChecked.classList.add('deleteChecked');
+deleteChecked.innerHTML = "delete checked";
+$function_Container.appendChild(deleteChecked);
+
+deleteChecked.addEventListener("click", () => {
+    const checkedCheckboxes = document.querySelectorAll('[name^="' + categoriaWyswietlana + '"]:checked');
+    checkedCheckboxes.forEach((checkbox) => {
+        const row = checkbox.closest('tr');  // closest('tr') 
+                                        // szukamy najbliższego przodka, który spełania
+                                        // warunek, że jest <tr> czyli wierszem 
+        row.remove();
+      });
+})
 
 
 

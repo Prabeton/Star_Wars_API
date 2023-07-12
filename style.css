@@ -164,6 +164,7 @@ td {
     background-color: rgb(255, 69, 0);
     color: black;
     font-weight: 600;
+    border-radius: 5px;
     
 }
 
@@ -185,4 +186,33 @@ td {
 }
 .detailsBox {
     background-color: gray;
+    border: 7px solid rgb(20, 128, 179);
+    border-radius: 7px;
+}
+
+#displayElements {
+    border: 5px solid brown;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+}
+
+.table {
+    border: 7px solid green;
+    border-radius: 10px;
+}
+
+.deleteChecked {
+    background-color: orange;
+    width: 200px;
+    height: 40px;
+    border-radius: 6px;
+    color: rgb(160, 56, 30);
+    font-weight: 600;
+}
+
+.function_Container{
+    display: flex;
+    justify-content: end;
+    width: 80%;
 }
