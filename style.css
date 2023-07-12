@@ -116,7 +116,10 @@ td {
     min-width: 100px;
     max-width: 200px;
 }
-
+#panel_Container{
+    display: flex;
+    align-items: baseline;
+}
 .pagination {
     margin-bottom: 20px;
     background-color: rgb(20, 223, 223);
@@ -130,7 +133,56 @@ td {
 .pagination:hover {
     background-color: rgb(16, 16, 136);
 }
+.paginationInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: rgb(20, 223, 223);
+    margin: 20px;
+    height: 40px;
+    width: 40px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: orangered;
+    font-size: 24px;
+}
 
 .ID {
     color: #bbd82a;
+}
+
+.modal {
+    display: flex;
+    padding: 20px;
+    width: 500px;
+    height: 100px;
+    border: 1px solid black;
+    position: fixed;
+    left: 40%;
+    top: 40%;
+    background-color: rgb(255, 69, 0);
+    color: black;
+    font-weight: 600;
+    
+}
+
+.hidden {
+    display: none;
+}
+.yes {
+    background-color: red;
+    color: white;
+    width: 60px;
+    border-radius: 7px;
+}
+.no {
+    background-color: green;
+    color: white;
+    margin-left: 10px;
+    width: 60px;
+    border-radius: 7px;
+}
+.detailsBox {
+    background-color: gray;
 }

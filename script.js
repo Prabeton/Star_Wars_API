@@ -11,18 +11,214 @@ let categoriaWyswietlana = "";
 
 const $right_Container = document.querySelector("#right_Container");
 const rightItem1 = document.createElement("div");
-rightItem1.classList.add("rightItem");
-$right_Container.appendChild(rightItem1);
+    rightItem1.classList.add("rightItem");
+    $right_Container.appendChild(rightItem1);
 
 
 const $buttonCC = document.querySelector("#buttonCC");
-    $buttonCC.addEventListener("click", () => {
+      $buttonCC.addEventListener("click", () => {
         console.log("Łączność OK! IDZIESZ NA PEWNĄ ŚMIERĆ!");
         alert("Łączność OK! IDZIESZ NA PEWNĄ ŚMIERĆ!");
         });
 
 
-                            // (state.collectionsData[key].results, key)
+class People {
+    constructor({ name, birth_year, gender, height, created }, index) {
+        this.index = index;
+        this.name = name;
+        this.birth_year = birth_year;
+        this.gender = gender;
+        this.height = height;
+        this.created = created;
+    }        
+
+    toHTML() {
+        return `<tr id="row${categoriaWyswietlana}${this.index}">
+            <td class="ID">${this.index + 1}</td>
+            <td>${this.name}</td>
+            <td>${this.birth_year}</td>
+            <td>${this.gender}</td>
+            <td>${this.height}</td>
+            <td>${new Date(this.created).toLocaleDateString()}</td>
+            <td>
+                <button class="details">details</button>
+                <button class="delete">delete</button>
+            </td>
+            <td>
+                <input type="checkbox" name="people${this.index}" value="${this.name}">
+            </td>
+        </tr>`;
+    }
+}        
+        
+class Planet {
+    constructor ({name, climate, diameter, gravity, created}, index) {
+        this.index = index;
+        this.name = name;
+        this.climate = climate;
+        this.diameter = diameter;
+        this.gravity = gravity;
+        this.created = created;
+    }
+
+    toHTML () {
+        return `<tr id="row${categoriaWyswietlana}${this.index}">
+                    <td class="ID">${this.index +1}</td>
+                    <td>${this.name}</td>
+                    <td>${this.climate}</td>
+                    <td>${this.diameter}</td>
+                    <td>${this.gravity}</td>
+                    <td>${new Date(this.created).toLocaleDateString()}</td>
+                    <td><button class="details">details</button>
+                        <button class="delete">delete</button></td>
+                    <td><input type="checkbox" name="planet${this.index}" value="${this.name}">
+                    </td>
+                </tr>`
+    }
+}
+
+class Film {
+    constructor ({title, director, producer, release_data, created}, index) {
+        this.index = index;
+        this.title = title;
+        this.director = director;
+        this.producer = producer;
+        this.release_data = release_data;
+        this.created = created;
+    }
+    
+    toHTML () {
+        return `<tr id="row${categoriaWyswietlana}${this.index}">
+                    <td class="ID">${this.index +1}</td>
+                    <td>${this.title}</td>
+                    <td>${this.director}</td>
+                    <td>${this.producer}</td>
+                    <td>${this.release_data}</td>
+                    <td>${new Date(this.created).toLocaleDateString()}</td>
+                    <td><button class="details">details</button>
+                        <button class="delete">delete</button></td>
+                    <td><input type="checkbox" name="film${this.index}" value="${this.title}">
+                    </td>
+                </tr>`
+    }
+}       
+        
+class Species {
+    constructor ({name, language, average_height, average_lifespan, created}, index) {
+        this.index = index;
+        this.name = name;
+        this.language = language;
+        this.average_height = average_height;
+        this.average_lifespan = average_lifespan;
+        this.created = created;
+    }
+    
+    toHTML () {
+        return `<tr id="row${categoriaWyswietlana}${this.index}">
+                    <td class="ID">${this.index +1}</td>
+                    <td>${this.name}</td>
+                    <td>${this.language}</td>
+                    <td>${this.average_height}</td>
+                    <td>${this.average_lifespan}</td>
+                    <td>${new Date(this.created).toLocaleDateString()}</td>
+                    <td><button class="details">details</button>
+                        <button class="delete">delete</button></td>
+                    <td><input type="checkbox" name="species${this.index}" value="${this.name}">
+                    </td>
+                </tr>`
+    }
+}
+        
+class Starship {
+    constructor ({name, manufacturer, model, cost_in_credits, created}, index) {
+        this.index = index;
+        this.name = name;
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.cost_in_credits = cost_in_credits;
+        this.created = created;
+    }
+
+    toHTML () {
+        return `<tr id="row${categoriaWyswietlana}${this.index}">
+                    <td class="ID">${this.index +1}</td>
+                    <td>${this.name}</td>
+                    <td>${this.manufacturer}</td>
+                    <td>${this.model}</td>
+                    <td>${this.cost_in_credits}</td>
+                    <td>${new Date(this.created).toLocaleDateString()}</td>
+                    <td><button class="details">details</button>
+                        <button class="delete">delete</button></td>
+                    <td><input type="checkbox" name="starship${this.index}" value="${this.cost_in_credits}">
+                    </td>
+                </tr>`
+    }
+}
+        
+class Vehicle {
+    constructor ({name, manufacturer, length, cost_in_credits, created}, index) {
+        this.index = index;
+        this.name = name;
+        this.manufacturer = manufacturer;
+        this.length = length;
+        this.cost_in_credits = cost_in_credits;
+        this.created = created;
+    }
+
+    toHTML () {
+        return `<tr id="row${categoriaWyswietlana}${this.index}">
+                    <td class="ID">${this.index +1}</td>
+                    <td>${this.name}</td>
+                    <td>${this.manufacturer}</td>
+                    <td>${this.length}</td>
+                    <td>${this.cost_in_credits}</td>
+                    <td>${new Date(this.created).toLocaleDateString()}</td>
+                    <td><button class="details">details</button>
+                        <button class="delete">delete</button>
+                    </td>
+                    <td><input type="checkbox" name="vehicle${this.index}" value="${this.cost_in_credits}">
+                    </td>
+                </tr>`
+    }
+}
+
+
+
+
+function addDeleteEventListeners() {
+    const Rows = document.querySelectorAll('[id^="row' + categoriaWyswietlana + '"]');
+                // znajduje elementy, kórych id zaczyna sie od.. row + kategoria +..
+    Rows.forEach((row) => {
+        const deleteButton = row.querySelector('.delete');
+                // dla każdego wiersza znajduje element o klasie .delete
+        deleteButton.addEventListener('click', () => {
+            const modal = document.createElement('div');
+            modal.classList.add("modal");
+            modal.innerHTML = "Czy na pewno chcesz usunąć ten wiersz?";
+            const buttonYes = document.createElement('button');
+            buttonYes.classList.add('yes');
+            buttonYes.innerHTML = "YES";
+            buttonYes.addEventListener("click", () => {
+                row.remove();
+                modal.classList.toggle('hidden');
+            });
+            modal.appendChild(buttonYes);
+
+            const buttonNo = document.createElement('button');
+            buttonNo.classList.add('no');
+            buttonNo.innerHTML = "NO";
+            buttonNo.addEventListener("click", () => {
+                modal.classList.toggle('hidden');
+            });
+            modal.appendChild(buttonNo);
+
+            buttons_Container.appendChild(modal);
+        });
+    });
+}
+
+
+        // (state.collectionsData[key].results, key)
 function printTableFn (tablicaObjektow, category) {
 
     const $table_Container = document.querySelector("#table_Container");
@@ -34,6 +230,7 @@ function printTableFn (tablicaObjektow, category) {
         })
 
     $table_Container.innerHTML = html;
+    addDeleteEventListeners();
 }
 
 
@@ -49,12 +246,14 @@ function displayButton (collectionName) {
 
         button.addEventListener("click", async () => {
             page = 1;
+            paginationInfo.innerHTML = `${page}`;
             categoriaWyswietlana = key;
             rightItem1.innerHTML = "";
             rightItem1.innerHTML = `*** ${categoriaWyswietlana} ***`;
             hederFlaga = false;
             await fetchDataFn(`${value}?page=${page}`, `collectionsData.${key}`, state.collectionsData);
             printTableFn(state.collectionsData[key].results, key);
+            
         });
         $buttons_Container.appendChild(button);
     })
@@ -92,169 +291,6 @@ console.log("state:", state);
 
 
 
-
-class People {
-    constructor ({name, birth_year, gender, height, created}, index) {
-        this.index = index;
-        this.name = name;
-        this.birth_year = birth_year;
-        this.gender = gender;
-        this.height = height;
-        this.created = created;
-    }
-    
-    toHTML () {
-        // let deleteButtonId = `deleteRowPeople${this.index}`;
-        // let deleteButton = document.getElementById("deleteRowPeople${this.index}");
-        // deleteButton.addEventListener('click', () => {
-        //     let row = document.getElementById(`rowPeople${this.index}`);
-        //     row.remove(); });
-
-        return `<tr id="rowPeople${this.index}">
-                    <td class="ID">${this.index +1}</td>
-                    <td>${this.name}</td>
-                    <td>${this.birth_year}</td>
-                    <td>${this.gender}</td>
-                    <td>${this.height}</td>
-                    <td>${new Date(this.created).toLocaleDateString()}</td>
-                    <td><button class="details">details</button>
-                        <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="people${this.index}" value="${this.name}">
-                    </td>
-                </tr>` ;
-        
-    }
-}
-
-class Planet {
-    constructor ({name, climate, diameter, gravity, created}, index) {
-        this.index = index;
-        this.name = name;
-        this.climate = climate;
-        this.diameter = diameter;
-        this.gravity = gravity;
-        this.created = created;
-    }
-    
-    toHTML () {
-        return `<tr id="rowPlanet${this.index}">
-                    <td class="ID">${this.index +1}</td>
-                    <td>${this.name}</td>
-                    <td>${this.climate}</td>
-                    <td>${this.diameter}</td>
-                    <td>${this.gravity}</td>
-                    <td>${new Date(this.created).toLocaleDateString()}</td>
-                    <td><button class="details">details</button>
-                        <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="planet${this.index}" value="${this.name}">
-                    </td>
-                </tr>`
-    }
-}
-class Film {
-    constructor ({title, director, producer, release_data, created}, index) {
-        this.index = index;
-        this.title = title;
-        this.director = director;
-        this.producer = producer;
-        this.release_data = release_data;
-        this.created = created;
-    }
-    
-    toHTML () {
-        return `<tr id="rowFilm${this.index}">
-                    <td class="ID">${this.index +1}</td>
-                    <td>${this.title}</td>
-                    <td>${this.director}</td>
-                    <td>${this.producer}</td>
-                    <td>${this.release_data}</td>
-                    <td>${new Date(this.created).toLocaleDateString()}</td>
-                    <td><button class="details">details</button>
-                        <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="film${this.index}" value="${this.title}">
-                    </td>
-                </tr>`
-    }
-}
-
-class Species {
-    constructor ({name, language, average_height, average_lifespan, created}, index) {
-        this.index = index;
-        this.name = name;
-        this.language = language;
-        this.average_height = average_height;
-        this.average_lifespan = average_lifespan;
-        this.created = created;
-    }
-    
-    toHTML () {
-        return `<tr id="rowSpecies${this.index}">
-                    <td class="ID">${this.index +1}</td>
-                    <td>${this.name}</td>
-                    <td>${this.language}</td>
-                    <td>${this.average_height}</td>
-                    <td>${this.average_lifespan}</td>
-                    <td>${new Date(this.created).toLocaleDateString()}</td>
-                    <td><button class="details">details</button>
-                        <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="species${this.index}" value="${this.name}">
-                    </td>
-                </tr>`
-    }
-}
-
-class Starship {
-    constructor ({name, manufacturer, model, cost_in_credits, created}, index) {
-        this.index = index;
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.model = model;
-        this.cost_in_credits = cost_in_credits;
-        this.created = created;
-    }
-
-    toHTML () {
-        return `<tr id="rowStarship${this.index}">
-                    <td class="ID">${this.index +1}</td>
-                    <td>${this.name}</td>
-                    <td>${this.manufacturer}</td>
-                    <td>${this.model}</td>
-                    <td>${this.cost_in_credits}</td>
-                    <td>${new Date(this.created).toLocaleDateString()}</td>
-                    <td><button class="details">details</button>
-                        <button class="delete">delete</button></td>
-                    <td><input type="checkbox" name="starship${this.index}" value="${this.cost_in_credits}">
-                    </td>
-                </tr>`
-    }
-}
-
-class Vehicle {
-    constructor ({name, manufacturer, length, cost_in_credits, created}, index) {
-        this.index = index;
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.length = length;
-        this.cost_in_credits = cost_in_credits;
-        this.created = created;
-    }
-
-    toHTML () {
-        return `<tr id="rowVehicle${this.index}">
-                    <td class="ID">${this.index +1}</td>
-                    <td>${this.name}</td>
-                    <td>${this.manufacturer}</td>
-                    <td>${this.length}</td>
-                    <td>${this.cost_in_credits}</td>
-                    <td>${new Date(this.created).toLocaleDateString()}</td>
-                    <td><button class="details">details</button>
-                        <button class="delete">delete</button>
-                    </td>
-                    <td><input type="checkbox" name="vehicle${this.index}" value="${this.cost_in_credits}">
-                    </td>
-                </tr>`
-    }
-}
 
 // wypełnij kategorię danymi 
                                     // ( {} , i , category ) 
@@ -371,22 +407,26 @@ let prevText = document.createTextNode("<-- poprzednia strona");
 prevButton.appendChild(prevText);
 $panel_Container.appendChild(prevButton);
 
+
+let paginationInfo = document.createElement("div");
+paginationInfo.classList.add("paginationInfo");
+paginationInfo.innerHTML = `${page}`;
+$panel_Container.appendChild(paginationInfo);
+
+
 let nextButton = document.createElement("button");
 nextButton.classList.add("pagination");
 let nextText = document.createTextNode("następna strona -->");
 nextButton.appendChild(nextText);
 $panel_Container.appendChild(nextButton);
 
-// let paginationInfo = document.createElement("p");
-// let paginationText = document.createTextNode("czemu sie nie wyświetla?");
-// paginationInfo.appendchild(paginationText);
-// $panel_Container.appendChild(paginationInfo);
 
 nextButton.addEventListener("click", async() => {
     page++;
     hederFlaga = false;
     await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
           printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
+    paginationInfo.innerHTML = `${page}`;
 });
 
 prevButton.addEventListener("click", async() => {
@@ -394,8 +434,8 @@ prevButton.addEventListener("click", async() => {
     hederFlaga = false;
     await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
           printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
+    paginationInfo.innerHTML = `${page}`;
 });
-
 
 
 
