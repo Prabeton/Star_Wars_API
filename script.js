@@ -22,6 +22,64 @@ const $buttonCC = document.querySelector("#buttonCC");
         });
 
 
+const $panel_Container = document.querySelector("#panel_Container")
+
+let prevButton = document.createElement("button");
+prevButton.classList.add("pagination");
+let prevText = document.createTextNode("<-- poprzednia strona");
+prevButton.appendChild(prevText);
+$panel_Container.appendChild(prevButton);
+              
+let paginationInfo = document.createElement("div");
+paginationInfo.classList.add("paginationInfo");
+paginationInfo.innerHTML = `${page}`;
+$panel_Container.appendChild(paginationInfo);
+                
+let nextButton = document.createElement("button");
+nextButton.classList.add("pagination");
+let nextText = document.createTextNode("następna strona -->");
+nextButton.appendChild(nextText);
+$panel_Container.appendChild(nextButton);
+
+function refreshPaginationButton () {
+    if (categoriaWyswietlana == "") {
+            prevButton.disabled = true;
+            nextButton.disabled = true;
+    } else {
+            prevButton.disabled = false; 
+            nextButton.disabled = false;
+    }
+    if (page <=1) {
+            prevButton.disabled = true;
+    } else {
+            prevButton.disabled = false;
+    }
+}
+
+refreshPaginationButton();
+
+nextButton.addEventListener("click", async() => {
+    page++;
+    hederFlaga = false;
+
+    refreshPaginationButton();
+
+    await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
+          printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
+    paginationInfo.innerHTML = `${page}`;
+});
+
+prevButton.addEventListener("click", async() => {
+    page--;
+    refreshPaginationButton();
+
+    hederFlaga = false;
+    await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
+          printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
+    paginationInfo.innerHTML = `${page}`;
+});
+
+
 class People {
     constructor({ name, birth_year, gender, height, created }, index) {
         this.index = index;
@@ -183,8 +241,6 @@ class Vehicle {
 }
 
 
-
-
 function addDeleteEventListeners() {
     const Rows = document.querySelectorAll('[id^="row' + categoriaWyswietlana + '"]');
                 // znajduje elementy, kórych id zaczyna sie od.. row + kategoria +..
@@ -234,7 +290,6 @@ function printTableFn (tablicaObjektow, category) {
 }
 
 
-
                             // (state.collectionsData)
 function displayButton (collectionName) {
     const $buttons_Container = document.querySelector("#buttons_Container");
@@ -248,6 +303,7 @@ function displayButton (collectionName) {
             page = 1;
             paginationInfo.innerHTML = `${page}`;
             categoriaWyswietlana = key;
+            refreshPaginationButton ();
             rightItem1.innerHTML = "";
             rightItem1.innerHTML = `*** ${categoriaWyswietlana} ***`;
             hederFlaga = false;
@@ -399,49 +455,7 @@ const fillCategoryWithData = (value, index, category) => {
 }; 
 
 
-
-const $panel_Container = document.querySelector("#panel_Container")
-
-
-let prevButton = document.createElement("button");
-prevButton.classList.add("pagination");
-let prevText = document.createTextNode("<-- poprzednia strona");
-prevButton.appendChild(prevText);
-$panel_Container.appendChild(prevButton);
-
-
-let paginationInfo = document.createElement("div");
-paginationInfo.classList.add("paginationInfo");
-paginationInfo.innerHTML = `${page}`;
-$panel_Container.appendChild(paginationInfo);
-
-
-let nextButton = document.createElement("button");
-nextButton.classList.add("pagination");
-let nextText = document.createTextNode("następna strona -->");
-nextButton.appendChild(nextText);
-$panel_Container.appendChild(nextButton);
-
-
-nextButton.addEventListener("click", async() => {
-    page++;
-    hederFlaga = false;
-    await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
-          printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
-    paginationInfo.innerHTML = `${page}`;
-});
-
-prevButton.addEventListener("click", async() => {
-    page--;
-    hederFlaga = false;
-    await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
-          printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
-    paginationInfo.innerHTML = `${page}`;
-});
-
-
 const $function_Container = document.getElementById("function_Container");
-
 
 const deleteChecked = document.createElement("button");
 deleteChecked.classList.add('deleteChecked');
@@ -452,7 +466,7 @@ deleteChecked.addEventListener("click", () => {
     const checkedCheckboxes = document.querySelectorAll('[name^="' + categoriaWyswietlana + '"]:checked');
     checkedCheckboxes.forEach((checkbox) => {
         const row = checkbox.closest('tr');  // closest('tr') 
-                                        // szukamy najbliższego przodka, który spełania
+                                        // szukamy najbliższego przodka (rodzica), który spełania
                                         // warunek, że jest <tr> czyli wierszem 
         row.remove();
       });

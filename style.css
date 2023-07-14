@@ -185,20 +185,20 @@ td {
     border-radius: 7px;
 }
 .detailsBox {
-    background-color: gray;
-    border: 7px solid rgb(20, 128, 179);
+    display: none;
+    background-color: rgb(27, 179, 60);
     border-radius: 7px;
 }
 
 #displayElements {
-    border: 5px solid brown;
+    /* border: 5px solid brown; */
     border-radius: 7px;
     display: flex;
     flex-direction: row;
 }
 
 .table {
-    border: 7px solid green;
+    /* border: 7px solid green; */
     border-radius: 10px;
 }
 
