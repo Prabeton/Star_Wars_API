@@ -226,8 +226,7 @@ td {
 }
 
 .powitalny {
-    color: red;
-    font-size: 64px;
+    font-size: 100px;
     font-family: "StarWars";
     font-weight: 700;
     animation: dynamicColor 3s infinite;

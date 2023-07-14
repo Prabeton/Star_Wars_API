@@ -10,12 +10,12 @@ Zadania do rozwiązania po live'ie w celu dozrozumienia tematu z live.
 
 ----------------------------------- Zasadnicza część pracy domowej: ---------------------
 
-Deadline - ?
-Przydatne linki:
-API - https://swapi.dev/
-Dokumentacja SWAPI - https://swapi.dev/documentation
-SWAPI jest otwartym API, w którym znajdziemy dane z universum STAR WARS
-CEL: Implementacja interaktywnej aplikacji www
+        Deadline - ?
+        Przydatne linki:
+        API - https://swapi.dev/
+        Dokumentacja SWAPI - https://swapi.dev/documentation
+        SWAPI jest otwartym API, w którym znajdziemy dane z universum STAR WARS
+        CEL: Implementacja interaktywnej aplikacji www
 
 ----------------------------------------------- *** -------------------------------------
       
@@ -53,15 +53,15 @@ CEL: Implementacja interaktywnej aplikacji www
         
         Na podstawie stworzonych obiektów wyświetl tabelkę, w której - nagłówkami będą nazwy właściwości obiektów - ostatnią kolumną będzie data 'created' przeformatowana do formatu DD-MM-YY - pierwszą kolumną będzie # liczba porządkowa 1,2,3... - na końcu każdego wiersza pojawią się 2 przyciski/ikony, DELETE i DETAILS. 
 
-7a. Po kliknięciu w DETAILS wyświetl listę po lewej stronie ekranu, a po prawej pokaż rozszerzony widok konkretnego modelu - na widoku modelu dodaj przycisk close, który zamknie detailsy i ponownie wyświetli listę na środku ekranu. 
+        7a. Po kliknięciu w DETAILS wyświetl listę po lewej stronie ekranu, a po prawej pokaż rozszerzony widok konkretnego modelu - na widoku modelu dodaj przycisk close, który zamknie detailsy i ponownie wyświetli listę na środku ekranu. 
 
         7b. Kliknięcie DELETE wyświetla modal: "Are you sure", z przyciskami YES i NO, po kliknięciu YES usuwamy element z listy, po kliknięciu NO zamykamy modal
 
 
 8. PAGINACJA / WALIDACJA / SELECT 
-Do tabelki dodaj:
+        Do tabelki dodaj:
 
-8a.     Paginację - poprzednia strona (z zablokowaniem < 1) - następna strona 
+        8a.     Paginację - poprzednia strona (z zablokowaniem < 1) - następna strona 
         (oblicz   ilość stron na podstawie ilosci wynikow i ilosci wyswietlonych elementow na 1 stronie)
 
 8b.     INPUT - w którym możemy wpisać do której strony chcemy przejść (walidacja) 
@@ -87,7 +87,7 @@ np. po klinięciu 'enter' wyświetli się komunikat GAME OVER i otworzy się now
 po najechaniu myszką na logo, bądź inny element odpali się dźwięk/film/animacja
 w tym zadaniu liczy się Wasza kreatywność, znajdźcie coś co nas zaskoczy 
 
-        11a.    "Sprawdź łączność" ;) 
+        11a.    "Sprawdź łączność" 
 
 
         12. **** CHECKBOX'Y NA WIERSZACH  
@@ -98,5 +98,6 @@ w tym zadaniu liczy się Wasza kreatywność, znajdźcie coś co nas zaskoczy
 
 -------------------------------------------- *** ---------------------------------------------------------
 
+gry póki co nie planuję robić póki co..
 13. ***** GRA Z KOMPUTEREM // to powinna być karcianka (grasz lukiem kontra waderem)
 korzystając z wiedzy zdobytej podczas tworzenia gry, spróbuj za pomocą modelu(klasy) postaci zaimplementować walkę 2 postaci jedna postać niech to będzie "sztuczna inteligencja", zaimplementowana za pomocą ifów drugą postacią będziemy grać my, czyli musi być opcja wygrania i przegrania z przeciwnikiem `:)`
