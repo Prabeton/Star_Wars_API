@@ -8,7 +8,10 @@ let hederFlaga = false;
 let page = 1;
 let categoriaWyswietlana = "";
 
+const $detailsBox = document.querySelector('#detailsBox');
 
+const $powitalny = document.getElementById("powitalny");
+ 
 const $right_Container = document.querySelector("#right_Container");
 const rightItem1 = document.createElement("div");
     rightItem1.classList.add("rightItem");
@@ -59,17 +62,20 @@ function refreshPaginationButton () {
 refreshPaginationButton();
 
 nextButton.addEventListener("click", async() => {
+    $detailsBox.classList.remove("detailsBox"); // zamykanie okna detailsów przy przejściu do innej strony 
+    $detailsBox.innerHTML = "";                 
     page++;
-    hederFlaga = false;
 
     refreshPaginationButton();
-
+    hederFlaga = false;
     await fetchDataFn(`https://swapi.dev/api/${categoriaWyswietlana}/?page=${page}`, `collectionsData.${categoriaWyswietlana}`, state.collectionsData);
           printTableFn(state.collectionsData[categoriaWyswietlana].results, categoriaWyswietlana);
     paginationInfo.innerHTML = `${page}`;
 });
 
 prevButton.addEventListener("click", async() => {
+    $detailsBox.classList.remove("detailsBox"); 
+    $detailsBox.innerHTML = "";                 
     page--;
     refreshPaginationButton();
 
@@ -242,6 +248,7 @@ class Vehicle {
 
 
 function addDeleteEventListeners() {
+    
     const Rows = document.querySelectorAll('[id^="row' + categoriaWyswietlana + '"]');
                 // znajduje elementy, kórych id zaczyna sie od.. row + kategoria +..
     Rows.forEach((row) => {
@@ -273,6 +280,36 @@ function addDeleteEventListeners() {
     });
 }
 
+function addDetailsEventListeners() {
+    const rows = document.querySelectorAll('[id^="row' + categoriaWyswietlana + '"]');
+    rows.forEach((row) => {
+        const detailsButton = row.querySelector('.details');
+        
+        
+        detailsButton.addEventListener('click', () => {
+            $detailsBox.classList.toggle("detailsBox"); 
+
+            const closeDetails = document.createElement("button");
+            closeDetails.classList.add("closeDetails");
+            closeDetails.innerHTML = "Zamknij detale";
+            closeDetails.addEventListener("click", () => {
+                $detailsBox.classList.remove("detailsBox"); // Usuń klasę "detailsBox" po kliknięciu przycisku "Zamknij detale"
+                $detailsBox.innerHTML = ""; // Wyczyść zawartość #detailsBox
+            });
+
+
+            $detailsBox.appendChild(closeDetails);
+            const rowIndex = row.id.substring(categoriaWyswietlana.length + 3); // Pobiera indeks z id wiersza obcinając 3 znaki 
+            const rowDetails = state.collectionsData[categoriaWyswietlana].results[rowIndex]; 
+            
+            const trescDetali = document.createElement('div');
+            trescDetali.innerHTML = JSON.stringify(rowDetails, null, 2);
+            $detailsBox.appendChild(trescDetali);
+        });
+    });
+  }
+
+
 
         // (state.collectionsData[key].results, key)
 function printTableFn (tablicaObjektow, category) {
@@ -287,6 +324,7 @@ function printTableFn (tablicaObjektow, category) {
 
     $table_Container.innerHTML = html;
     addDeleteEventListeners();
+    addDetailsEventListeners();
 }
 
 
@@ -300,6 +338,7 @@ function displayButton (collectionName) {
         button.classList.add("button");
 
         button.addEventListener("click", async () => {
+            $powitalny.classList.add("hidden");
             page = 1;
             paginationInfo.innerHTML = `${page}`;
             categoriaWyswietlana = key;

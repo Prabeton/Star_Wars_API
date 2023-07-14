@@ -63,6 +63,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    
 }
 
 #right_Container {
@@ -97,6 +98,12 @@ main {
 }
 
 .details {
+    background-color: #bbd82a;
+    border: none;
+    border-radius: 4px;
+}
+
+.closeDetails {
     background-color: #bbd82a;
     border: none;
     border-radius: 4px;
@@ -185,20 +192,21 @@ td {
     border-radius: 7px;
 }
 .detailsBox {
-    display: none;
+    max-height: 60vh;
+    display: block;
     background-color: rgb(27, 179, 60);
     border-radius: 7px;
+    max-width: 300px;
+    overflow: hidden;
 }
 
 #displayElements {
-    /* border: 5px solid brown; */
     border-radius: 7px;
     display: flex;
     flex-direction: row;
 }
 
 .table {
-    /* border: 7px solid green; */
     border-radius: 10px;
 }
 
@@ -216,3 +224,21 @@ td {
     justify-content: end;
     width: 80%;
 }
+
+.powitalny {
+    color: red;
+    font-size: 64px;
+    font-family: "StarWars";
+    font-weight: 700;
+    animation: dynamicColor 3s infinite;
+}
+
+@keyframes dynamicColor {
+    0% { color:rgb(217, 164, 38); }
+    25% { color: greenyellow }
+    50% { color: green; }
+    75% { color: greenyellow }
+    100% { color:rgb(180, 156, 48); }
+  }
+  
+  
