@@ -2,6 +2,28 @@
 // <title> Star Wars ver.3 </title>
 // miłego sprawdzania :)
 
+const main = document.getElementById('main');
+const $left_Container = document.getElementById("left_Container");
+const $center_Container = document.getElementById("center_Container");
+const $right_Container = document.getElementById("right_Container");
+const suwak = document.getElementById('toggleSwitch');
+
+suwak.addEventListener('click', function() {
+    if (suwak.checked){
+        console.log("checkbox jest zaznaczony");
+        main.style.backgroundColor = 'grey';
+        $left_Container.style.backgroundColor = 'green';
+        $center_Container.style.backgroundColor = 'green';
+        $right_Container.style.backgroundColor = 'green';
+    } else {
+        console.log("checkbox jest odznaczony");
+        main.style.backgroundColor = '#05570b';
+        $left_Container.style.backgroundColor = 'rgb(20, 46, 25)';
+        $center_Container.style.backgroundColor = 'rgb(20, 46, 25)';
+        $right_Container.style.backgroundColor = 'rgb(20, 46, 25)';
+    }
+});
+
 const BASE_URL = "https://swapi.dev/api/";
 const state = {};
 let hederFlaga = false;
@@ -12,7 +34,7 @@ const $detailsBox = document.querySelector('#detailsBox');
 
 const $powitalny = document.getElementById("powitalny");
  
-const $right_Container = document.querySelector("#right_Container");
+// const $right_Container = document.querySelector("#right_Container");
 const rightItem1 = document.createElement("div");
     rightItem1.classList.add("rightItem");
     $right_Container.appendChild(rightItem1);
@@ -338,6 +360,8 @@ function displayButton (collectionName) {
         button.classList.add("button");
 
         button.addEventListener("click", async () => {
+            $detailsBox.classList.remove("detailsBox"); 
+            $detailsBox.innerHTML = "";    
             $powitalny.classList.add("hidden");
             page = 1;
             paginationInfo.innerHTML = `${page}`;
