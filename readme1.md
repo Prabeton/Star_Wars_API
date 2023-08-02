@@ -94,7 +94,7 @@ w tym zadaniu liczy się Wasza kreatywność, znajdźcie coś co nas zaskoczy
         Dodaj możliwośc zaznaczania checkboxem wierszy na tabelce, dzięki czemu na raz będziemy mogli usunąć kilka itemów z listy, a nie tylko jeden
 
 
-14. Funkcjonalność zmiany THEMING'U z jasnego na ciemny i odwrotnie.
+        14. Funkcjonalność zmiany THEMING'U z jasnego na ciemny i odwrotnie.
 
 -------------------------------------------- *** ---------------------------------------------------------
 

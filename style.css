@@ -270,7 +270,7 @@ td {
     font-weight: 700;
     animation: dynamicColor 3s infinite;
 }
-
+                /* definiowanie animacji napisu */
 @keyframes dynamicColor {
     0% { color:rgb(217, 164, 38); }
     25% { color: greenyellow }
